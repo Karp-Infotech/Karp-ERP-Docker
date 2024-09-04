@@ -70,7 +70,7 @@ services:
         target: /var/lib/mysql
         volume: {}
     ports:
-      - "3306:3306"
+      - "3307:3306"
   frontend:
     command:
       - nginx-entrypoint.sh
