@@ -5,11 +5,10 @@ services:
       configurator:
         condition: service_completed_successfully
         required: true
-    image: frappe/erpnext:v15.33.5
+    image: ghcr.io/spkarp/karp-erp-img:1.0.0
     networks:
       bench-network: null
       mariadb-network: null
-    platform: linux/amd64
     pull_policy: always
     volumes:
       - type: volume
@@ -36,11 +35,10 @@ services:
       REDIS_CACHE: redis-cache:6379
       REDIS_QUEUE: redis-queue:6379
       SOCKETIO_PORT: "9000"
-    image: frappe/erpnext:v15.33.5
+    image: ghcr.io/spkarp/karp-erp-img:1.0.0
     networks:
       bench-network: null
       mariadb-network: null
-    platform: linux/amd64
     pull_policy: always
     volumes:
       - type: volume
@@ -72,7 +70,7 @@ services:
         target: /var/lib/mysql
         volume: {}
     ports:
-      - "3307:3306"
+      - "3306:3306"
   frontend:
     command:
       - nginx-entrypoint.sh
@@ -92,10 +90,9 @@ services:
       UPSTREAM_REAL_IP_ADDRESS: 127.0.0.1
       UPSTREAM_REAL_IP_HEADER: X-Forwarded-For
       UPSTREAM_REAL_IP_RECURSIVE: "off"
-    image: frappe/erpnext:v15.33.5
+    image: ghcr.io/spkarp/karp-erp-img:1.0.0
     networks:
       bench-network: null
-    platform: linux/amd64
     pull_policy: always
     volumes:
       - type: volume
@@ -103,7 +100,7 @@ services:
         target: /home/frappe/frappe-bench/sites
         volume: {}
     ports:
-      - "8081:8080"
+      - "8180:8080"
   queue-long:
     command:
       - bench
@@ -114,11 +111,10 @@ services:
       configurator:
         condition: service_completed_successfully
         required: true
-    image: frappe/erpnext:v15.33.5
+    image: ghcr.io/spkarp/karp-erp-img:1.0.0
     networks:
       bench-network: null
       mariadb-network: null
-    platform: linux/amd64
     pull_policy: always
     volumes:
       - type: volume
@@ -135,11 +131,10 @@ services:
       configurator:
         condition: service_completed_successfully
         required: true
-    image: frappe/erpnext:v15.33.5
+    image: ghcr.io/spkarp/karp-erp-img:1.0.0
     networks:
       bench-network: null
       mariadb-network: null
-    platform: linux/amd64
     pull_policy: always
     volumes:
       - type: volume
@@ -174,11 +169,10 @@ services:
       configurator:
         condition: service_completed_successfully
         required: true
-    image: frappe/erpnext:v15.33.5
+    image: ghcr.io/spkarp/karp-erp-img:1.0.0
     networks:
       bench-network: null
       mariadb-network: null
-    platform: linux/amd64
     pull_policy: always
     volumes:
       - type: volume
@@ -193,11 +187,10 @@ services:
       configurator:
         condition: service_completed_successfully
         required: true
-    image: frappe/erpnext:v15.33.5
+    image: ghcr.io/spkarp/karp-erp-img:1.0.0
     networks:
       bench-network: null
       mariadb-network: null
-    platform: linux/amd64
     pull_policy: always
     volumes:
       - type: volume
@@ -222,12 +215,12 @@ x-backend-defaults:
   depends_on:
     configurator:
       condition: service_completed_successfully
-  image: frappe/erpnext:v15.33.5
+  image: ghcr.io/spkarp/karp-erp-img:1.0.0
   pull_policy: always
   volumes:
     - sites:/home/frappe/frappe-bench/sites
 x-customizable-image:
-  image: frappe/erpnext:v15.33.5
+  image: ghcr.io/spkarp/karp-erp-img:1.0.0
   pull_policy: always
 x-depends-on-configurator:
   depends_on:
