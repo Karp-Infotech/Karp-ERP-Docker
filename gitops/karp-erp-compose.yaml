@@ -9,6 +9,7 @@ services:
     networks:
       bench-network: null
       mariadb-network: null
+    platform: linux/amd64
     pull_policy: always
     volumes:
       - type: volume
@@ -39,6 +40,7 @@ services:
     networks:
       bench-network: null
       mariadb-network: null
+    platform: linux/amd64  
     pull_policy: always
     volumes:
       - type: volume
@@ -93,6 +95,7 @@ services:
     image: ghcr.io/karp-org/karp-erp:1.0.0
     networks:
       bench-network: null
+    platform: linux/amd64  
     pull_policy: always
     volumes:
       - type: volume
@@ -115,6 +118,7 @@ services:
     networks:
       bench-network: null
       mariadb-network: null
+    platform: linux/amd64  
     pull_policy: always
     volumes:
       - type: volume
@@ -135,6 +139,7 @@ services:
     networks:
       bench-network: null
       mariadb-network: null
+    platform: linux/amd64  
     pull_policy: always
     volumes:
       - type: volume
@@ -173,6 +178,7 @@ services:
     networks:
       bench-network: null
       mariadb-network: null
+    platform: linux/amd64  
     pull_policy: always
     volumes:
       - type: volume
@@ -191,6 +197,7 @@ services:
     networks:
       bench-network: null
       mariadb-network: null
+    platform: linux/amd64  
     pull_policy: always
     volumes:
       - type: volume
@@ -216,11 +223,13 @@ x-backend-defaults:
     configurator:
       condition: service_completed_successfully
   image: ghcr.io/karp-org/karp-erp:1.0.0
+  platform: linux/amd64
   pull_policy: always
   volumes:
     - sites:/home/frappe/frappe-bench/sites
 x-customizable-image:
   image: ghcr.io/karp-org/karp-erp:1.0.0
+  platform: linux/amd64
   pull_policy: always
 x-depends-on-configurator:
   depends_on:
