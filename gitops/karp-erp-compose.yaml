@@ -5,7 +5,7 @@ services:
       configurator:
         condition: service_completed_successfully
         required: true
-    image: ghcr.io/spkarp/karp-erp-img:1.0.0
+    image: ghcr.io/karp-org/karp-erp:1.0.0
     networks:
       bench-network: null
       mariadb-network: null
@@ -35,7 +35,7 @@ services:
       REDIS_CACHE: redis-cache:6379
       REDIS_QUEUE: redis-queue:6379
       SOCKETIO_PORT: "9000"
-    image: ghcr.io/spkarp/karp-erp-img:1.0.0
+    image: ghcr.io/karp-org/karp-erp:1.0.0
     networks:
       bench-network: null
       mariadb-network: null
@@ -90,7 +90,7 @@ services:
       UPSTREAM_REAL_IP_ADDRESS: 127.0.0.1
       UPSTREAM_REAL_IP_HEADER: X-Forwarded-For
       UPSTREAM_REAL_IP_RECURSIVE: "off"
-    image: ghcr.io/spkarp/karp-erp-img:1.0.0
+    image: ghcr.io/karp-org/karp-erp:1.0.0
     networks:
       bench-network: null
     pull_policy: always
@@ -111,7 +111,7 @@ services:
       configurator:
         condition: service_completed_successfully
         required: true
-    image: ghcr.io/spkarp/karp-erp-img:1.0.0
+    image: ghcr.io/karp-org/karp-erp:1.0.0
     networks:
       bench-network: null
       mariadb-network: null
@@ -131,7 +131,7 @@ services:
       configurator:
         condition: service_completed_successfully
         required: true
-    image: ghcr.io/spkarp/karp-erp-img:1.0.0
+    image: ghcr.io/karp-org/karp-erp:1.0.0
     networks:
       bench-network: null
       mariadb-network: null
@@ -169,7 +169,7 @@ services:
       configurator:
         condition: service_completed_successfully
         required: true
-    image: ghcr.io/spkarp/karp-erp-img:1.0.0
+    image: ghcr.io/karp-org/karp-erp:1.0.0
     networks:
       bench-network: null
       mariadb-network: null
@@ -187,7 +187,7 @@ services:
       configurator:
         condition: service_completed_successfully
         required: true
-    image: ghcr.io/spkarp/karp-erp-img:1.0.0
+    image: ghcr.io/karp-org/karp-erp:1.0.0
     networks:
       bench-network: null
       mariadb-network: null
@@ -215,12 +215,12 @@ x-backend-defaults:
   depends_on:
     configurator:
       condition: service_completed_successfully
-  image: ghcr.io/spkarp/karp-erp-img:1.0.0
+  image: ghcr.io/karp-org/karp-erp:1.0.0
   pull_policy: always
   volumes:
     - sites:/home/frappe/frappe-bench/sites
 x-customizable-image:
-  image: ghcr.io/spkarp/karp-erp-img:1.0.0
+  image: ghcr.io/karp-org/karp-erp:1.0.0
   pull_policy: always
 x-depends-on-configurator:
   depends_on:
