@@ -26,9 +26,7 @@ git clone https://github.com/frappe/frappe_docker
 cd frappe_docker
 ```
 
-Then run: 
-Local Env : `docker compose -f pwd.yml up -d`
-Prod Env : `docker compose -f docker-compose-prod.yml up -d`
+Then run: `docker compose -f pwd.yml up -d`
 
 ## Final steps
 
