@@ -3,7 +3,7 @@ version: "3"
 services:
   backend:
     platform: linux/x86_64
-    image: ghcr.io/karp-org/karp-erp:1.0.2
+    image: ghcr.io/karp-org/karp-erp:1.0.3
     deploy:
       restart_policy:
         condition: on-failure
@@ -13,7 +13,7 @@ services:
 
   configurator:
     platform: linux/x86_64
-    image: ghcr.io/karp-org/karp-erp:1.0.2
+    image: ghcr.io/karp-org/karp-erp:1.0.3
     deploy:
       restart_policy:
         condition: none
@@ -42,7 +42,7 @@ services:
 
   create-site:
     platform: linux/x86_64
-    image: ghcr.io/karp-org/karp-erp:1.0.2
+    image: ghcr.io/karp-org/karp-erp:1.0.3
     deploy:
       restart_policy:
         condition: none
@@ -96,7 +96,7 @@ services:
       - db-data:/var/lib/mysql
   frontend:
     platform: linux/x86_64
-    image: ghcr.io/karp-org/karp-erp:1.0.2
+    image: ghcr.io/karp-org/karp-erp:1.0.3
     depends_on:
       - websocket
     deploy:
@@ -120,7 +120,7 @@ services:
 
   queue-long:
     platform: linux/x86_64
-    image: ghcr.io/karp-org/karp-erp:1.0.2
+    image: ghcr.io/karp-org/karp-erp:1.0.3
     deploy:
       restart_policy:
         condition: on-failure
@@ -135,7 +135,7 @@ services:
 
   queue-short:
     platform: linux/x86_64
-    image: ghcr.io/karp-org/karp-erp:1.0.2
+    image: ghcr.io/karp-org/karp-erp:1.0.3
     deploy:
       restart_policy:
         condition: on-failure
@@ -168,7 +168,7 @@ services:
 
   scheduler:
     platform: linux/x86_64
-    image: ghcr.io/karp-org/karp-erp:1.0.2
+    image: ghcr.io/karp-org/karp-erp:1.0.3
     deploy:
       restart_policy:
         condition: on-failure
@@ -181,7 +181,7 @@ services:
 
   websocket:
     platform: linux/x86_64
-    image: ghcr.io/karp-org/karp-erp:1.0.2
+    image: ghcr.io/karp-org/karp-erp:1.0.3
     deploy:
       restart_policy:
         condition: on-failure
