@@ -2,6 +2,7 @@ version: "3"
 
 services:
   backend:
+    platform: linux/x86_64
     image: ghcr.io/karp-org/karp-erp:1.0.10
     deploy:
       restart_policy:
@@ -11,6 +12,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
 
   configurator:
+    platform: linux/x86_64
     image: ghcr.io/karp-org/karp-erp:1.0.10
     deploy:
       restart_policy:
@@ -39,6 +41,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
 
   create-site:
+    platform: linux/x86_64
     image: ghcr.io/karp-org/karp-erp:1.0.10
     deploy:
       restart_policy:
@@ -67,9 +70,10 @@ services:
           fi
         done;
         echo "sites/common_site_config.json found";
-        bench new-site --no-mariadb-socket --admin-password=admin --db-root-password=admin --install-app erpnext --set-default karp-erp;
-        bench --site karp-erp install-app karp_communication;
+        bench new-site --no-mariadb-socket --admin-password=admin --db-root-password=admin --install-app erpnext --set-default ls-erp;
+        bench --site ls-erp install-app frappe_whatsapp;
   db:
+    platform: linux/x86_64
     image: mariadb:10.6
     healthcheck:
       test: mysqladmin ping -h localhost --password=admin
@@ -87,8 +91,8 @@ services:
       MYSQL_ROOT_PASSWORD: admin
     volumes:
       - db-data:/var/lib/mysql
-
   frontend:
+    platform: linux/x86_64
     image: ghcr.io/karp-org/karp-erp:1.0.10
     depends_on:
       - websocket
@@ -109,9 +113,10 @@ services:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
     ports:
-      - "8280:8080"
+      - "8180:8080"
 
   queue-long:
+    platform: linux/x86_64
     image: ghcr.io/karp-org/karp-erp:1.0.10
     deploy:
       restart_policy:
@@ -126,6 +131,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
 
   queue-short:
+    platform: linux/x86_64
     image: ghcr.io/karp-org/karp-erp:1.0.10
     deploy:
       restart_policy:
@@ -140,6 +146,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
 
   redis-queue:
+    platform: linux/x86_64
     image: redis:6.2-alpine
     deploy:
       restart_policy:
@@ -148,6 +155,7 @@ services:
       - redis-queue-data:/data
 
   redis-cache:
+    platform: linux/x86_64
     image: redis:6.2-alpine
     deploy:
       restart_policy:
@@ -156,6 +164,7 @@ services:
       - redis-cache-data:/data
 
   scheduler:
+    platform: linux/x86_64
     image: ghcr.io/karp-org/karp-erp:1.0.10
     deploy:
       restart_policy:
@@ -168,6 +177,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
 
   websocket:
+    platform: linux/x86_64
     image: ghcr.io/karp-org/karp-erp:1.0.10
     deploy:
       restart_policy:
