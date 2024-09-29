@@ -2,7 +2,7 @@ version: "3"
 
 services:
   backend:
-    image: ghcr.io/karp-org/karp-erp:1.0.19
+    image: ghcr.io/karp-org/karp-erp:1.0.20
     deploy:
       restart_policy:
         condition: on-failure
@@ -11,7 +11,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
 
   configurator:
-    image: ghcr.io/karp-org/karp-erp:1.0.19
+    image: ghcr.io/karp-org/karp-erp:1.0.20
     deploy:
       restart_policy:
         condition: none
@@ -39,7 +39,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
 
   create-site:
-    image: ghcr.io/karp-org/karp-erp:1.0.19
+    image: ghcr.io/karp-org/karp-erp:1.0.20
     deploy:
       restart_policy:
         condition: none
@@ -89,7 +89,7 @@ services:
       - db-data:/var/lib/mysql
 
   frontend:
-    image: ghcr.io/karp-org/karp-erp:1.0.19
+    image: ghcr.io/karp-org/karp-erp:1.0.20
     depends_on:
       - websocket
     deploy:
@@ -112,7 +112,7 @@ services:
       - "8280:8080"
 
   queue-long:
-    image: ghcr.io/karp-org/karp-erp:1.0.19
+    image: ghcr.io/karp-org/karp-erp:1.0.20
     deploy:
       restart_policy:
         condition: on-failure
@@ -126,7 +126,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
 
   queue-short:
-    image: ghcr.io/karp-org/karp-erp:1.0.19
+    image: ghcr.io/karp-org/karp-erp:1.0.20
     deploy:
       restart_policy:
         condition: on-failure
@@ -156,7 +156,7 @@ services:
       - redis-cache-data:/data
 
   scheduler:
-    image: ghcr.io/karp-org/karp-erp:1.0.19
+    image: ghcr.io/karp-org/karp-erp:1.0.20
     deploy:
       restart_policy:
         condition: on-failure
@@ -168,7 +168,7 @@ services:
       - logs:/home/frappe/frappe-bench/logs
 
   websocket:
-    image: ghcr.io/karp-org/karp-erp:1.0.19
+    image: ghcr.io/karp-org/karp-erp:1.0.20
     deploy:
       restart_policy:
         condition: on-failure
