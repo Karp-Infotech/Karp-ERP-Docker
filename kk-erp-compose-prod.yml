@@ -150,12 +150,15 @@ services:
       - redis-queue-data:/data
 
   redis-cache:
-    image: redis:6.2-alpine
+    image: redis/redis-stack:latest
     deploy:
       restart_policy:
         condition: on-failure
     volumes:
       - redis-cache-data:/data
+    ports:
+      - "10001:6379"
+      - "13333:8001"
 
   scheduler:
     image: ghcr.io/karp-org/kk-erp:1.0.4
