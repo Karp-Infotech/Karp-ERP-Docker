@@ -157,8 +157,8 @@ services:
     volumes:
       - redis-cache-data:/data
     ports:
-      - "10001:6379"
-      - "13333:8001"
+      - "10002:6379"
+      - "13334:8001"
 
   scheduler:
     image: ghcr.io/karp-org/kk-erp:1.0.29
