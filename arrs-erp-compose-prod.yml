@@ -111,7 +111,7 @@ services:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
     ports:
-      - "8380:8080"
+      - "8580:8080"
 
   queue-long:
     image: ghcr.io/karp-org/arrs-erp:0.0.1
@@ -157,8 +157,8 @@ services:
     volumes:
       - redis-cache-data:/data
     ports:
-      - "10001:6379"
-      - "13333:8001"
+      - "10003:6379"
+      - "13335:8001"
 
   scheduler:
     image: ghcr.io/karp-org/arrs-erp:0.0.1
