@@ -157,7 +157,7 @@ services:
     volumes:
       - redis-cache-data:/data
     ports:
-      - "10003:6379"
+      - "10004:6379"
       - "13335:8001"
 
   scheduler:
